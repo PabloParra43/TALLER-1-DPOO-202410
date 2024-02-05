@@ -1,0 +1,13 @@
+tipo:Extra:20000:20000.0
+tipo:Corriente:15000:30000.0
+tipo:Leche:4500:10000.0
+tipo:Diesel:7000:80000.0
+surtidor:Dave:Extra:0.0:Corriente:0.0:Leche:0.0:Diesel:0.0
+surtidor:Ernesto:Extra:0.0:Corriente:0.0:Leche:0.0:Diesel:0.0
+surtidor:Kyle:Extra:0.0:Corriente:0.0:Leche:0.0:Diesel:0.0
+surtidor:Dave:Extra:0.0:Corriente:0.0:Leche:0.0:Diesel:0.0
+empleado:Kyle:0
+empleado:John:0
+empleado:Dave:0
+empleado:Jane:0
+empleado:Ernesto:0

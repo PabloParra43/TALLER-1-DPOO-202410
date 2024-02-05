@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <help_text/>
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>216</y>
+      <w>608</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>logica::Gasolinera
+--
+--
++Gasolinera(int cantidadSurtidores, List&lt;TipoGasolina&gt; listaTiposGasolina, String[] nombresEmpleados)
+-Gasolinera(List&lt;Surtidor&gt; surtidores, Collection&lt;TipoGasolina&gt; tiposGasolina, Collection&lt;Empleado&gt; empleados)
++getCantidadSurtidores(): int
++getSurtidor(int numSurtidor): Surtidor
++getTipoGasolina(String nombreTipoGasolina): TipoGasolina
++getTiposGasolina(): Collection&lt;TipoGasolina&gt;
++getEmpleado(String nombreEmpleado): Empleado
++getEmpleados(): Collection&lt;Empleado&gt;
++venderGasolinaPorCantidad(String nombreTipoGasolina, double cantidadSolicitada, int numeroSurtidor): int
++venderGasolinaPorPrecio(String nombreTipoGasolina, int valorSolicitado, int numeroSurtidor): int
++guardarEstado(File archivo): void
++cargarEstado(File archivo): Gasolinera
+
+bg=PINK</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>8</x>
+      <y>216</y>
+      <w>416</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>logica::Surtidor
+--
+-galonesVendidos: Map&lt;String, Double&gt;
+--
++Surtidor(Map&lt;String, TipoGasolina&gt; tiposGasolina, Empleado empleado)
++getEmpleadoAsignado(): Empleado
++getGalonesVendidos(String nombreTipoGasolina): Double
++cambiarGalonesVendidos(String nombreTipoGasolina, double cantidad): void
++getTiposGasolina(): String[]
++getTipoGasolina(String nombreTipoGasolina): TipoGasolina
++venderGasolina(String nombreTipoGasolina, double cantidadEntregada): int
+
+bg=PINK</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1096</x>
+      <y>24</y>
+      <w>664</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>/&lt;&lt;abstract&gt;&gt;/
+/consola::ConsolaBasica/
+--
+--
+#pedirCadenaAlUsuario(String mensaje): String
+#pedirConfirmacionAlUsuario(String mensaje): boolean
+#pedirEnteroAlUsuario(String mensaje): int
+#pedirNumeroAlUsuario(String mensaje): double
+#pedirOpcionAlUsuario(Collection&lt;? extends Object&gt; coleccionOpciones): String
+#mostrarMenu(String nombreMenu, String[] opciones): int
+#mostrarEstadoActual(int cantidadSurtidores, Collection&lt;TipoGasolina&gt; tiposGasolina, String[] nombresEmpleados): void
+#mostrarEstadoActual(int cantidadSurtidores, Collection&lt;TipoGasolina&gt; tiposGasolina, Collection&lt;Empleado&gt; empleados): void
+-mostrarInformacionBasica(int cantidadSurtidores, Collection&lt;TipoGasolina&gt; tiposGasolina): void
+
+bg=YELLOW</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>464</y>
+      <w>432</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>logica::TipoGasolina
+--
+-nombre: String
+-precioPorGalon: int
+-cantidadDisponible: double
+--
++TipoGasolina(String nombre, int precioPorGalon, double cantidadDisponible)
++getNombre(): String
++getPrecioPorGalon(): int
++getCantidadDisponible(): double
++despacharGasolina(double cantidadSolicitada): void
++toString(): String
+
+bg=PINK</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1248</x>
+      <y>600</y>
+      <w>264</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>consola::ConsolaCrearGasolinera
+--
+-opcionesCrearGasolinera: String[] 
+-nombresEmpleados: List&lt;String&gt;
+-cantidadSurtidores: int
+--
++mostrarOpciones(): Gasolinera
+-agregarTipoGasolina(): void
+-agregarNombreEmpleado(): void
+-cambiarCantidadSurtidores(): void
+
+bg=YELLOW</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1200</x>
+      <y>280</y>
+      <w>208</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>consola::ConsolaPrincipal
+--
+-opcionesMenuPrincipal: String[]
+--
+-mostrarMenuPrincipal(): void
+-usarGasolinera(): void
+-cargarGasolinera(): void
+-guardarGasolinera(): void
++main(String[] args): void
+
+
+bg=YELLOW</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1184</x>
+      <y>464</y>
+      <w>264</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>consola::ConsolaUsarGasolinera
+--
+-opcionesUsarGasolinera: String[]
+--
++ConsolaUsarGasolinera(Gasolinera gasolinera)
++mostrarMenu(): void
+-venderGasolinaPorPrecio(): void
+-venderGasolinaPorVolumen(): void
+
+
+bg=YELLOW</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>88</x>
+      <y>736</y>
+      <w>552</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>exceptions::GasolinaInsuficienteException
+--
+-tipoGasolina: String
+-cantidadDisponible: double
+-cantidadSolicitada: double
+--
++GasolinaInsuficienteException(String tipoGasolina, double cantidadDisponible, double cantidadSolicitada)
++getMessage(): String
++getCantidadDisponible(): double
+
+bg=CYAN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>24</y>
+      <w>232</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>logica::Empleado
+--
+-nombre: String
+-cantidadDinero: int
+--
++Empleado(String nombre)
++getNombre(): String
++getCantidadDinero(): int
++agregarDinero(int dinero): void
+--
+
+bg=PINK</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>80</y>
+      <w>208</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>utils::Sorteo
+--
+--
++seleccionarAlAzar(E[] opciones): E
+
+bg=MAGENTA</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>232</x>
+      <y>136</y>
+      <w>120</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=empleadoAsignado
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>376</y>
+      <w>176</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=tiposGasolina
+m1=*</panel_attributes>
+    <additional_attributes>200.0;160.0;10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>384</y>
+      <w>88</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=tiposGasolina
+m1=*</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>368</x>
+      <y>72</y>
+      <w>304</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=empleados
+m1=*</panel_attributes>
+    <additional_attributes>10.0;20.0;360.0;20.0;360.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>416</x>
+      <y>296</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=surtidores
+m1=*</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>544</y>
+      <w>176</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;builds&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;240.0;10.0;10.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>904</x>
+      <y>128</y>
+      <w>24</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1120</x>
+      <y>224</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=laGasolinera
+m1=1</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0;160.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1096</x>
+      <y>384</y>
+      <w>144</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=laGasolinera
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;160.0;60.0;160.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1288</x>
+      <y>376</y>
+      <w>64</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;builds&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1400</x>
+      <y>344</y>
+      <w>192</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;builds&gt;&gt;</panel_attributes>
+    <additional_attributes>140.0;380.0;170.0;380.0;170.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>592</y>
+      <w>504</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=tiposGasolina
+m1=*</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0;610.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1336</x>
+      <y>176</y>
+      <w>24</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1424</x>
+      <y>176</y>
+      <w>24</w>
+      <h>304</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1472</x>
+      <y>176</y>
+      <w>24</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;530.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,11 @@
+tipo:corriente:14500:100
+tipo:plus:16251:80
+tipo:extra:21090:50
+surtidor:Alice:corriente:1:extra:1:plus:1
+surtidor:Bob:corriente:2.2:extra:2.2:plus:2.2
+surtidor:Charly:corriente:3:extra:0:
+surtidor:Bob:extra:4:corriente:4
+empleado:Alice:900000
+empleado:Bob:850000
+empleado:Charly:800000
+empleado:Dave:750000
